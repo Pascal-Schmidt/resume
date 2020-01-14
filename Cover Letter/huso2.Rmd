@@ -1,0 +1,56 @@
+---
+output:
+  html_document:
+    css: styles.css
+    theme: null
+  pdf_document: default
+---
+
+```{r include = FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
+<style type="text/css">
+h1 { /* Header 1 */
+  font-size: 100px;
+  font-family: "Playfair Display", serif;
+  color: #000;
+  text-align: center;
+}
+</style>
+
+# Pascal Schmidt
+
+<center>
+<i class="fa fa-envelope"></i> pascal_schmidt@sfu.ca &ensp; &bull; &ensp;
+<i class="fa fa-mobile"></i> 778-686-2807 &ensp; &bull; &ensp;
+[<i class="fab fa-linkedin-in"></i>](https://www.linkedin.com/in/pascal-data-science/) &ensp; &bull; &ensp;
+[<i class="fa fa-github"></i>](http://github.com/Pascal-SChmidt)
+</center>
+
+<br>
+
+November 26, 2019 <br>
+
+Scotiabank <br>
+Toronto, Ontario <br><br>
+
+Dear Hiring Manager,
+
+In an increasingly complex world, we need to develop technologies and machine learning models that can provide protection against cyber-security threats and protection for Scotiabank’s customer data. As a Data Scientist, I am convinced that I can contribute to the goals of Scotiabank through my experience in machine learning, data wrangling, and data cleaning. I am certain that I am the perfect addition to your team as I get excited about data and the insight it can provide. Therefore, it is with great enthusiasm that I submit my application for the Data Science position at Scotiabank, as I believe that Scotiabank’s greatest strength is the interpretation and evaluation of their data.
+ 
+During my role as a Data Science Trainee at the BC Cancer Agency, I learned how to communicate data by building dashboards as a reporting tool for physicians. Specifically, I used flexdashboard in R to communicate the data. Based on the feedback I received from physicians and my supervisor, I adjusted my work and we collaboratively optimised our work flow and results, until we reached our goal of having a complete understanding of the data. On top of that, we also integrated a meta-analysis and a cox-regression model for a better understanding of our research question if women with endometrial cancer need additional treatment. On top of building models and communicating data, I was responsible for reshaping and munging various data sets on endometrial cancer patients into the right format for medical presentation and reports. 
+Having never worked in the field of Biostastistics and medicine before, I had to learn to quickly acquaint myself with unknown methods, frameworks, and packages. I did this by going through code documentation and reading scientific papers in my own time in order to give my work
+proper context.
+
+During my work at Statistics Canada, I learned how to deal with bigger data sets and therefore, write efficient code. Based on key criteria identified by our team, I cleaned and joined multiple data sets into a final data set ready for analysis. I conducted extensive exploratory data analysis and communicated the data with graphs and tables to my supervisor. By constant engagement and improvement of data communication we came up with variables, which I feature engineered, that helped us better understand our research question of comparing consistency rates of addresses from administrative data to cencus data. Lastly, we built a logistic regression model which explained, through the help of odds ratios, what variables are most significant for high consistency rates.  
+
+In closing, I believe that the skills I have gained from my past experiences can be readily transferred and help improve the overall operations at your organization. It is my hope to assist Scotiabank to decrease their cybersecurity threats and support their digital marketing presence. Thank you for your time and I look forward to discussing my qualifications with you further.
+
+
+Sincerely,
+
+Pascal Schmidt
+
+

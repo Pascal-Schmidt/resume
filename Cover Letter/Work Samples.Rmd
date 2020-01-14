@@ -1,0 +1,57 @@
+---
+output:
+  html_document:
+    theme: null
+    css: styles.css
+---
+
+```{r include = FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+<style type="text/css">
+h1 { /* Header 1 */
+  font-size: 100px;
+  font-family: "Playfair Display", serif;
+  color: #000;
+  text-align: center;
+}
+</style>
+
+# Work Samples
+
+<center>
+<i class="fa fa-envelope"></i> pascal_schmidt@sfu.ca &ensp; &bull; &ensp;
+<i class="fa fa-mobile"></i> 778-686-2807 &ensp; &bull; &ensp;
+[<i class="fab fa-linkedin-in"></i>](https://www.linkedin.com/in/pascal-data-science/) &ensp; &bull; &ensp;
+[<i class="fa fa-github"></i>](http://github.com/Pascal-SChmidt)
+</center>
+
+<br>
+<br>
+
+[Statistics Canada Summer Co-op 2019](https://github.com/Pascal-Schmidt/statistics-canada)
+
+- Worked on the Census Program Transformation Project during my summer 2019 internship at Statistics Canada.
+- Investigated administrative data from the Immigration, Refugees, and Citizenship Canada (IRCC) and compared consistency rates of addresses with Census data.
+
+<br>
+
+[Matrix Completion of Weather Data](https://github.com/Pascal-Schmidt/Matrix-Completion-Weather-Data) (Finished 1st Place on Kaggle)
+
+- Created a C++ function, which identified for which values in the data set it was appropriate to use linear interpolation and for which values it was appropriate to use linear regression.
+- Built a R function, which customised a linear regression model for each data point individually due to the missingness pattern in the data set.
+
+<br>
+
+[A Data Driven Approach to Evaluating the Vancouver Housing Market](https://github.com/Pascal-Schmidt/blog_posts/blob/master/32_Data-Driven-Approach-to-Evaluating-the-Vancouver-Housing-Market/reports/Vanouver_housing_market.md)
+
+- Scraped housing prices, housing characteristics, and locations from websites and built a clean data set ready for analysis.
+- Investigated the Greater Vancouver Housing Market by fitting a multiple linear regression to find out market rates for rent and home prices and analyzed price-to-rent ratios.
+
+<br>
+
+[R Shiny Pima Indians Diabetes Data Set](http://thatdatatho.com/2018/04/09/r-shiny-app-discriminant-analysis/)
+
+- Created an R Shiny web application which checks the assumptions of Linear vs. Quadratic Discriminant Analysis on a diabetes data set and gives an intuition which of those algorithms will perform better. 
+

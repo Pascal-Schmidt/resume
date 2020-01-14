@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  line-height: 1.5em;
+  font-size: 0.75rem;
+  margin-right: 7%;
+  margin-left: 7%;
+  color: #444;
+}
+
+/* Give headers playfair font */
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  color: #000;
+  text-align: center;
+  margin-top: 35px;
+  margin-right: 1%;
+  margin-left: 1%;
+}

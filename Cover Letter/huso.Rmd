@@ -1,0 +1,31 @@
+---
+title: "Cover Letter"
+author: "Pascal Schmidt"
+output:
+  pagedown::html_letter:
+    css: ['css/styles.css', 'letter']
+    self_contained: false
+links-to-footnotes: true
+paged-footnotes: true
+---
+# Pascal Schmidt 
+
+February 17, 2019\n
+Mrs. Vicki Desjardins\n
+Statistics Canada\n
+100 Tunney's Pasture Drive\n
+Ottawa, Ontario\n
+K1A 0T6\n
+
+Dear Hiring Manager,
+
+It is my honor and pleasure to write a letter of recommendation^[Is this the first letter that contains GIFs ever in the history of human?] for Dr. Emi Tanaka, a great hacker in my eyes.
+
+Emi said [it was heck of a praise](https://twitter.com/statsgen/status/1023118510745038848) when I said Earo was a very impressive hacker. Well, the fact is that I have been actually impressed many more times by Emi, which is probably because Earo is a relatively low-key hacker, and I have seen a lot of cool things Emi posted on Twitter this year. If I were to write a full letter about them, it would probably take me two whole days. Below is a one-hour attempt to show the many ways in which she can be so cool.
+
+![Yihui's signature](https://user-images.githubusercontent.com/163582/47831497-c6656c00-dd5e-11e8-87b3-1f03fa97baa0.png)  
+Yihui Xie  
+Software Engineer  
+RStudio, Inc.
+
+<script src="https://yihui.name/js/center-img.js"></script>

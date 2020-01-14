@@ -1,0 +1,205 @@
+---
+title: Pascal Schmidt's Resume"
+author: Pascal Schmidt
+date: "`r Sys.Date()`"
+linkcolor: blue
+output:
+  pagedown::html_resume:
+    css: ['css/custom_resume.css', 'css/styles.css', 'resume']
+    # set it to true for a self-contained HTML page but it'll take longer to render
+    self_contained: true
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis', 
+  echo = FALSE
+)
+library(tidyverse)
+library(glue)
+
+# Set this to true to have links turned into footnotes at the end of the document
+PDF_EXPORT <- FALSE
+
+# Holds all the links that were inserted for placement at the end
+links <- c()
+
+source('parsing_functions.R')
+
+
+# First let's get the data, filtering to only the items tagged as
+# Resume items
+position_data <- read_csv('positions.csv') %>% 
+  filter(in_resume) %>% 
+  mutate(
+    # Build some custom sections by collapsing others
+    section = case_when(
+      section %in% c('research_positions', 'industry_positions') ~ 'positions', 
+      section %in% c('data_science_writings', 'by_me_press') ~ 'writings',
+      TRUE ~ section
+    )
+  ) 
+
+```
+
+
+Aside
+================================================================================
+
+Contact {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> pascal_schmidt@sfu.ca
+- <i class="fa fa-mobile"></i> 778-686-2807
+- <i class="fab fa-linkedin-in"></i> [Pascal-Schmidt](https://www.linkedin.com/in/pascal-data-science/)
+- <i class="fa fa-github"></i> [Pascal-Schmidt](http://github.com/Pascal-SChmidt)
+- <i class="fa fa-link"></i> [thatdatatho](http://thatdatatho.com)
+
+
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+- R/RStudio
+- Shiny
+- Markdown
+- Power BI
+- Python
+- C++
+- SQL 
+- Version Control
+
+
+
+Research {#Research}
+--------------------------------------------------------------------------------
+
+- [Molecular subtype not immune response drives outcomes in endometrial carcinoma]("https://clincancerres.aacrjournals.org/content/early/2018/12/06/1078-0432.CCR-18-3241")
+
+Commonly Used Libraries for Projects and Work
+------------------------------------------------
+
+\n
+
+- `tidyverse` (Data Cleaning)
+- `caret` (Cross-validation, Machine Learning)
+- `glmnet` (Lasso, Ridge)
+- `Rcpp` (C++, for faster looping)
+
+\n 
+
+- `pandas` (Data Cleaning)
+- `numpy` (Data Cleaning/Manipulation)
+- `scikit-learn` (Machine Learning)
+
+
+Main
+================================================================================
+
+Pascal Schmidt {#title}
+--------------------------------------------------------------------------------
+
+```{r}
+intro_text <- "I recently graduated with a B.S. in Statistics, minor in Economics and have a keen interest in data science. This passion is reflected in my [personal blog](http://thatdatatho.com), Kaggle competitions, and hackathons. Outside of my academic pursuits, I am also an alumni of the SFU Men’s Soccer team."
+
+cat(sanitize_links(intro_text))
+```
+
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### B.S., Statistics, (Minor Economics)
+
+Simon Fraser University	
+
+Burnaby, BC
+
+2014 - 2019		
+
+
+Work Experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### Data Science Co-op	
+
+Statistics Canada	
+
+Ottawa, ON	
+
+May 2019 - August 2019	
+
+- Developed functions for cleaning multiple data sets based on key criteria identified by our team and built the data set ready for analysis by using SQL join commands.	
+- Created graphs and tables in `ggplot2` for a better understanding of why people's addresses on administrative data matches that on census data.	
+- Modeled a logistic regression and interpreted the odds ratios for a better understanding of which predictors explain the reason of consistent addresses between admin data and census data. Project code can be found on my [github](https://github.com/Pascal-Schmidt/statistics-canada).	
+
+### Data Science Trainee	
+
+BC Cancer Agency	
+
+Vancouver, BC	 
+
+May 2018 - December 2018	
+
+- Worked collaboratively on a meta-analysis of individual patient data to determine whether endometrial cancer patients need additional treatment.	
+- Conducted exploratory data analysis by visualizing patterns and key characteristics for better insights and understanding of the data set.	
+- Composed a bi-annual report by reshaping and joining multiple data sets, working extensively with R `tidyverse` packages such as `dplyr`, `ggplot2`, and `purrr`.	
+- Developed graphs and tables for two clinical cancer
+research papers, one published and one upcoming.
+
+### R Tutor
+
+Simon Fraser University
+
+Burnaby, BC
+
+September 2019 - Present
+
+- Taught core `tidyverse` packages to students for an intuituve understanding of how these opinionated libraries work.
+- Explained basic data structures, the fundamentals of programming, and best coding practices in order for students to gain comfort and speed with the R language.
+
+
+
+Projects {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section <- function(position_data, section_id){
+  position_data %>% 
+    filter(section == section_id) %>% 
+    arrange(desc(end)) %>% 
+    mutate(id = 1:n()) %>% 
+    pivot_longer(
+      starts_with('description'),
+      names_to = 'description_num',
+      values_to = 'description',
+      values_drop_na = TRUE
+    ) %>% 
+    group_by(id) %>% 
+    mutate(
+      descriptions = list(description)
+    ) %>% 
+    ungroup() %>% 
+    filter(description_num == 'description_1') %>% 
+    mutate(
+      timeline = ifelse(
+        is.na(start) | start == end,
+        end,
+        glue('{end} - {start}')
+      ),
+      description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
+    ) %>% 
+    strip_links_from_cols(c('title', 'description_bullets')) %>% 
+    mutate_all(~ifelse(is.na(.), 'N/A', .)) %>% 
+    glue_data(
+      "### {title}",
+      "\n\n",
+      "{description_bullets}",
+      "\n\n\n",
+    )
+}
+
+source('parsing_functions.R')
+position_data %>% print_section('projects')
+```

@@ -49,6 +49,7 @@ Aside
 Contact {#contact}
 --------------------------------------------------------------------------------
 
+- <i class="fa fa-home"></i> 5391 McColl Crescent, Richmond, BC, V6V 2L6
 - <i class="fa fa-envelope"></i> pascal_schmidt@sfu.ca
 - <i class="fa fa-mobile"></i> 778-686-2807
 - <i class="fab fa-linkedin-in"></i> [Pascal-Schmidt](https://www.linkedin.com/in/pascal-data-science/)
@@ -61,14 +62,15 @@ Skills {#skills}
 --------------------------------------------------------------------------------
 
 - R/RStudio
-- Shiny
-- Markdown
-- Power BI
 - Python
 - C++
 - SQL 
-- Version Control
-
+- Shiny
+- Markdown
+- Power BI
+- Microsoft Excel
+- Version Control (Git)
+- Statistical Analysis
 
 
 Research {#Research}
@@ -78,19 +80,14 @@ Research {#Research}
 
 Commonly Used Libraries for Projects and Work
 ------------------------------------------------
-
-\n
-
+<p> </p>
+- <b> R: </b> 
 - `tidyverse` (Data Cleaning)
 - `caret` (Cross-validation, Machine Learning)
-- `glmnet` (Lasso, Ridge)
 - `Rcpp` (C++, for faster looping)
-
-\n 
-
-- `pandas` (Data Cleaning)
-- `numpy` (Data Cleaning/Manipulation)
-- `scikit-learn` (Machine Learning)
+- `glmnet` (Lasso, Ridge)
+- `randomForest` (Machine Learning)
+- `DBI`, `RSQLite` (Connect to databases, read in data from databases)
 
 
 Main
@@ -100,7 +97,7 @@ Pascal Schmidt {#title}
 --------------------------------------------------------------------------------
 
 ```{r}
-intro_text <- "I recently graduated with a B.S. in Statistics, minor in Economics and have a keen interest in data science. This passion is reflected in my [personal blog](http://thatdatatho.com), Kaggle competitions, and hackathons. Outside of my academic pursuits, I am also an alumni of the SFU Men’s Soccer team."
+intro_text <- "I recently graduated with a B.S. in Statistics, minor in Economics and have a keen interest in data science. This passion is reflected in my [personal blog](http://thatdatatho.com), Kaggle competitions, and hackathons. Outside of my academic pursuits, I am also an alumni of the SFU Men's Soccer team."
 
 cat(sanitize_links(intro_text))
 ```
@@ -122,7 +119,7 @@ Burnaby, BC
 Work Experience {data-icon=suitcase}
 --------------------------------------------------------------------------------
 
-### Data Science Co-op	
+### Data Analyst (co-op)	
 
 Statistics Canada	
 
@@ -130,11 +127,13 @@ Ottawa, ON
 
 May 2019 - August 2019	
 
-- Developed functions for cleaning multiple data sets based on key criteria identified by our team and built the data set ready for analysis by using SQL join commands.	
-- Created graphs and tables in `ggplot2` for a better understanding of why people's addresses on administrative data matches that on census data.	
-- Modeled a logistic regression and interpreted the odds ratios for a better understanding of which predictors explain the reason of consistent addresses between admin data and census data. Project code can be found on my [github](https://github.com/Pascal-Schmidt/statistics-canada).	
+- Developed R scripts for cleaning multiple data sets and used SQL join commands to built a final usable data set for analysis.	
+- Built a R markdown report with tables and graphs for a better understanding of why people's addresses on administrative data matches that on census data.
+- Created visualizations in Power BI to supplement the R markdown report.
+- Feature engineered new variables for a better explanatory power of our logistic regression model. 
+- Presented data and conclusions to my team, which used the results to gain actionable insights into the Census Program Transformation Project. Project code can be found on my [github](https://github.com/Pascal-Schmidt/statistics-canada).	
 
-### Data Science Trainee	
+### Data Scientist (co-op)	
 
 BC Cancer Agency	
 
@@ -143,23 +142,48 @@ Vancouver, BC
 May 2018 - December 2018	
 
 - Worked collaboratively on a meta-analysis of individual patient data to determine whether endometrial cancer patients need additional treatment.	
-- Conducted exploratory data analysis by visualizing patterns and key characteristics for better insights and understanding of the data set.	
-- Composed a bi-annual report by reshaping and joining multiple data sets, working extensively with R `tidyverse` packages such as `dplyr`, `ggplot2`, and `purrr`.	
-- Developed graphs and tables for two clinical cancer
-research papers, one published and one upcoming.
+- Conducted an exploratory data analysis by visualizing patterns and key characteristics for better insights and understanding of the data set.	
+- Composed a bi-annual report by cleaning, reshaping and joining multiple unstructured data sets, working extensively with R `tidyverse` packages such as `dplyr`, `purrr`, `tidyr`, and `stringr`. 	
+- Independently researched and applied previously unkown statistical libraries for an improved data representation.  
 
-### R Tutor
+### Data Analysis / R Tutor
 
 Simon Fraser University
 
 Burnaby, BC
 
-September 2019 - Present
+January 2018 - Present
 
-- Taught core `tidyverse` packages to students for an intuituve understanding of how these opinionated libraries work.
-- Explained basic data structures, the fundamentals of programming, and best coding practices in order for students to gain comfort and speed with the R language.
+- Taught core `tidyverse` packages, data structures, the fundamentals of programming, and best coding practices to students. 
+- Explained how to write basic queries in SQL to retrieve data from a database. 
 
 
+Leadership Experience {data-icon=users}
+--------------------------------------------------------------------------------
+
+### Men's Soccer Varsity Team
+
+Simon Fraser University
+
+Burnaby, BC
+
+September 2014 - April 2018
+
+- Lead the team to two consecutive GNAC championships in 2016 and 2017.
+- Won the GNAC Newcomer of the year award in 2015 through an exceptional soccer season with the SFU team.
+- Mentored incoming freshman about the academic and athletic responsibilities of a student athlete. 
+
+### Personal Blog
+
+[thatdatatho.com](http://thatdatatho.com)
+
+World
+
+January 2018 - Present
+
+- Published tutorials about various R libraries and other technical concepts such as web scraping, cross-validation, and machine learning algorithms.
+- Explained specific R functions in detail by developing coding examples easily understandable by readers. 
+- Helped commenters and other interested readers in becoming more familiar with statistical concepts and data cleaning tasks. 
 
 Projects {data-icon=chalkboard-teacher}
 --------------------------------------------------------------------------------
@@ -201,5 +225,144 @@ print_section <- function(position_data, section_id){
 }
 
 source('parsing_functions.R')
-position_data %>% print_section('projects')
+position_data %>% 
+  print_section('projects')
 ```
+
+Professional Development {data-icon=user-tie}
+--------------------------------------------------------------------------------
+
+```{r}
+print_section <- function(position_data, section_id){
+  position_data %>% 
+    filter(section == section_id) %>% 
+    arrange(desc(end)) %>% 
+    mutate(id = 1:n()) %>% 
+    pivot_longer(
+      starts_with('description'),
+      names_to = 'description_num',
+      values_to = 'description',
+      values_drop_na = TRUE
+    ) %>% 
+    group_by(id) %>% 
+    mutate(
+      descriptions = list(description)
+    ) %>% 
+    ungroup() %>% 
+    filter(description_num == 'description_1') %>% 
+    mutate(
+      timeline = ifelse(
+        is.na(start) | start == end,
+        end,
+        glue('{end} - {start}')
+      ),
+      description_bullets = map_chr(descriptions, ~paste('-', ., collapse = '\n')),
+    ) %>% 
+    strip_links_from_cols(c('title', 'description_bullets')) %>% 
+    mutate_all(~ifelse(is.na(.), 'N/A', .)) %>% 
+    glue_data(
+      "### {title}",
+      "\n\n",
+      "{description_bullets}",
+      "\n\n\n",
+    )
+}
+
+source('parsing_functions.R')
+position_data %>% 
+  print_section('development')
+```
+
+```{css, echo=FALSE}
+/* Remove the fake bullets from lists */
+.extra-sidebar li::before {
+  content: auto;
+}
+
+/* Dont put the little fake list point in front of links */
+.extra-sidebar li::before {
+  display: none;
+}
+
+/* Move closer to start and up towards header */
+.extra-sidebar ul {
+  padding-left: 1rem;
+}
+
+.extra-sidebar li::before {
+  position: relative;
+  margin-left: -4.25pt;
+  content: "• ";
+}
+
+/* Make sure elements in asside are centered and have a nice small text */
+.extra-sidebar {
+  width: calc(var(--sidebar-width) + 9px);
+  line-height: 1.5;
+  font-size: 0.75rem;
+}
+
+.extra-sidebar {
+  height: 100%;
+  width: var(--sidebar-width) !important;
+  padding-left: 0.75rem;
+  padding-right: 0;
+  padding-top: 2rem;;
+}
+
+.extra-sidebar h1 {
+  display: none;
+}
+
+.extra-sidebar .level2:first-of-type {
+  margin-top: 0;
+}
+
+.extra-sidebar p {
+  margin-block-start: 0.75em;
+  margin-block-end: 0;
+}
+```
+
+Second page sidebar {.aside .extra-sidebar}
+================================================================================
+
+<p></p>
+<p></p>
+- <b> Python:  </b>
+- `pandas` (Data Cleaning)
+- `numpy` (Data Cleaning/Manipulation)
+- `scikit-learn` (Machine Learning)
+
+<p></p>
+<p></p>
+
+Hackathon
+---------------------------------------------------------
+
+-  <b> 2017 VANSASH:
+Vancouver Sports Analytics Symposium & Hackathon </b>
+<p></p>
+
+- In a team of 4, analyzed ice hockey data provided by the Vancouver Canucks.
+<p></p>
+- Predicted where most goals are scored from by extracting stops from power plays. 
+<p></p>
+- Identified key players on the ice through visualizations using the `ggplot2` package.
+<p></p>
+- Presented our findings and visualization in front of a judging panel and 60 other participants.
+
+Interests
+------------------------------------------------
+
+- Soccer
+<p></p>
+- Table Tennis
+<p></p>
+- Skiing
+<p></p>
+- Hiking
+<p></p>
+- Reading
+<p></p>
+- Travel
